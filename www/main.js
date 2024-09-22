@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     
     $('.text').textillate({
@@ -9,5 +10,65 @@ $(document).ready(function () {
         out: {
             effect: "bounceOut"
         },
-    })
+    });
+
+    // Siri Wave
+    var siriWave = new SiriWave({
+        container: document.getElementById("siri-container"),
+        width: 800,
+        height: 200,
+        style: "ios9",
+        amplitude: "1",
+        frequency: "0.5",
+        speed: "0.30",
+        autostart: true
+        
+    });
+
+    // Siri message animation
+    $('.siri-message').textillate({
+        loop: true,
+        sync: true,
+        in: { 
+            effect: "fadeInUp",
+            sync: true,
+        },
+        out: {
+            effect: "fadeOutUp",
+            sync: true,
+        },
+    });
+
+    // mic button click event
+    // $("#MicBtn").click(function () { 
+    //     eel.playAssistantSound()
+    //     $("#Oval").attr("hidden", true);
+    //     $("#SiriWave").attr("hidden", false);
+    //     // eel.allCommands()()
+    // });
+
+        // mic button click event
+    $('#MicBtn').click(function (e) { 
+        e.preventDefault(); // prevent form submission
+        // eel.playAssistantSound()()
+        $("#Oval").attr("hidden", true);
+        $("#SiriWave").attr("hidden", false);
+        // eel.takeCommand()() 
+        eel.allCommands()()
+        
+    });
+
+// Create Shortcut key in main.js
+
+   function doc_keyUp(e) {
+        // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+
+        if (e.key === 'j' && e.metaKey) {
+            eel.playAssistantSound()
+            $("#Oval").attr("hidden", true);
+            $("#SiriWave").attr("hidden", false);
+            eel.allCommands()()
+        }
+    }
+    document.addEventListener('keyup', doc_keyUp, false);
 });
