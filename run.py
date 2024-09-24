@@ -28,6 +28,6 @@ if __name__ == '__main__':
 
     if p2.is_alive():
         p2.terminate()
-        p2.join()
+        p2.join()   
 
     print("system stop")
