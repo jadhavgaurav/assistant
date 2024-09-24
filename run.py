@@ -3,7 +3,6 @@
     # To run Jarvis
 import multiprocessing
 
-
 def startJarvis():
     # Code for process 1
     print("Process 1 is running.")
@@ -17,7 +16,6 @@ def listenHotword():
     from engine.features import hotword
     hotword()
     
-
 # create if main and run the process
 
     # Start both processes
@@ -32,4 +30,4 @@ if __name__ == '__main__':
         p2.terminate()
         p2.join()
 
-    print("system stop")   
+    print("system stop")

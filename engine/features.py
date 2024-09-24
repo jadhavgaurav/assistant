@@ -15,6 +15,8 @@ import pyaudio
 import time
 import struct
 
+from hugchat import hugchat
+
 import sqlite3
 import eel
 
@@ -95,6 +97,7 @@ def hotword():
         keyword_paths = [
             "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\jarvis_en_windows_v3_0_0.ppn",  # Update with correct path
             "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\victus_en_windows_v3_0_0.ppn"  # Update with correct path
+            "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\jarvis_en_windows_v3_0_0(1).ppn"
         ]
 
        
@@ -203,3 +206,14 @@ def whatsApp(mobile_no, message, flag, name):
 
     pyautogui.hotkey('enter')
     speak(jarvis_message)
+    
+# chat bot 
+def chatBot(query):
+    user_input = query.lower()
+    chatbot = hugchat.ChatBot(cookie_path="engine\\cookies.json")
+    id = chatbot.new_conversation()
+    chatbot.change_conversation(id)
+    response =  chatbot.chat(user_input)
+    print(response)
+    speak(response)
+    return response

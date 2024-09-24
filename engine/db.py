@@ -46,6 +46,10 @@ cursor.execute(query)
 # cursor.execute(query)
 # con.commit()
 
+query = "INSERT INTO sys_command VALUES (null,'whatsapp', 'whatsapp:')"
+cursor.execute(query)
+con.commit()
+
 ## Create contacts Table
 ## Create a table with the desired columns
 

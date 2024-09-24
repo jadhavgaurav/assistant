@@ -16,7 +16,8 @@ def hotword():
         # Paths to your custom wake word model files (.ppn files)
         keyword_paths = [
             "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\jarvis_en_windows_v3_0_0.ppn",  # Update with correct path
-            "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\victus_en_windows_v3_0_0.ppn"  # Update with correct path
+            "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\victus_en_windows_v3_0_0.ppn",  # Update with correct path
+            "D:\\Onedrive\\gaurav@wqs42.onmicrosoft.com\\OneDrive - MSFT\\Desktop\\jarvvvv\\jarvis_en_windows_v3_0_0(1).ppn"  # Update with correct path
         ]
 
         # Create Porcupine instance with custom wake word models

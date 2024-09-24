@@ -6,6 +6,7 @@ import time
 import eel
 
 def speak(text):
+    text = str(text)
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[0].id) 
@@ -13,6 +14,7 @@ def speak(text):
     eel.DisplayMessage(text)
     # print(voices)
     engine.say(text)
+    eel.receiverText(text)
     engine.runAndWait()
     
 
@@ -50,10 +52,19 @@ def takeCommand():
 
 
 @eel.expose
-def allCommands():
+def allCommands(message=1):
+    
+    
+    if message == 1:
+        query = takeCommand()
+        print(query)
+        eel.senderText(query)
+    else:
+        query = message
+        eel.senderText(query)
     
     try:
-        query = takeCommand()
+        query = message
         print(query)
         
         if "open" in query:
@@ -82,7 +93,11 @@ def allCommands():
                     flag = 'video call'
                     
                 whatsApp(contact_no, query, flag, name)
-
+                
+        
+        else:
+            from engine.features import chatBot
+            chatBot(query)
         
     except:
         print("Error")
